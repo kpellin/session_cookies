@@ -1,18 +1,22 @@
 <?php require 'inc/head.php'; 
 
-if (!empty($_COOKIE)) 
+if (empty($_SESSION)) 
 {
-	;
+  header('location: login.php');
+}
 
-	if ($_COOKIE['id'] == 46) 
-	{
-		?><section class="cookies container-fluid">
-			<?php if(!empty($_SESSION))
+if (isset($_COOKIE['id1']) || isset($_COOKIE['id2']) || isset($_COOKIE['id3']) || isset($_COOKIE['id4'])) 
+{
+	if(!empty($_SESSION))
 			{
 				 ?><h1>Hey <?php echo $_SESSION['username'];?>, vous avez craqué pour ça :</h1>
 				<?php
 			}
-			?>
+
+	if (isset($_COOKIE['id1']) AND $_COOKIE['id1'] == 46) 
+	{
+		?><section class="cookies container-fluid">
+			
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <figure class="thumbnail text-center">
@@ -26,15 +30,11 @@ if (!empty($_COOKIE))
   		</div>
         <?php
 	}
-	elseif ($_COOKIE['id'] == 36) 
+
+	if (isset($_COOKIE['id2']) AND $_COOKIE['id2'] == 36) 
 	{
 		?><section class="cookies container-fluid">
-			<?php if(!empty($_SESSION))
-			{
-				 ?><h1>Hey <?php echo $_SESSION['username'];?>, vous avez craqué pour ça :</h1>
-				<?php
-			}
-			?>
+			
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <figure class="thumbnail text-center">
@@ -48,15 +48,11 @@ if (!empty($_COOKIE))
   		</div>
         <?php
 	}
-	elseif ($_COOKIE['id'] == 58) 
+
+	if (isset($_COOKIE['id3']) AND $_COOKIE['id3'] == 58) 
 	{
 		?><section class="cookies container-fluid">
-			<?php if(!empty($_SESSION))
-			{
-				 ?><h1>Hey <?php echo $_SESSION['username'];?>, vous avez craqué pour ça :</h1>
-				<?php
-			}
-			?>
+			
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <figure class="thumbnail text-center">
@@ -70,15 +66,10 @@ if (!empty($_COOKIE))
   		</div>
         <?php
 	}
-	elseif ($_COOKIE['id'] == 32) 
+	
+	if (isset($_COOKIE['id4']) AND $_COOKIE['id4'] == 32) 
 	{
 		?><section class="cookies container-fluid">
-			<?php if(!empty($_SESSION))
-			{
-				 ?><h1>Hey <?php echo $_SESSION['username'];?>, vous avez craqué pour ça :</h1>
-				<?php
-			}
-			?>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <figure class="thumbnail text-center">
@@ -92,8 +83,20 @@ if (!empty($_COOKIE))
   		</div>
         <?php
 	}
+	
+	
 }
-
+else
+	{
+		?>
+		<div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">   
+              <h3> <?php echo 'Vous n\'avez craqué pour rien ? ... Vraiment ? '; ?></h3>
+     	 </div>
+  		</div>
+  		<?php
+		
+	}
 
 
 

@@ -2,6 +2,8 @@
 require 'inc/head.php'; 
 
 
+
+
 if (empty($_SESSION)) 
 {
   header('location: login.php');
@@ -11,7 +13,31 @@ if (!empty($_POST))
 {
   $id = $_POST['submit'];
   $cookieEnd = time()+60*60*24;
-  setcookie("id", $id, $cookieEnd);
+  switch ($id) 
+  {
+    case 46:
+         setcookie("id1", $id, $cookieEnd);
+      break;
+        
+     case 36:
+         setcookie("id2", $id, $cookieEnd);
+      break;
+
+      case 58:
+        setcookie("id3", $id, $cookieEnd);
+      break;
+
+      case 32:
+           setcookie("id4", $id, $cookieEnd);
+      break;
+    
+  }
+
+ 
+ 
+ 
+  
+ 
 }
 
 ?>
