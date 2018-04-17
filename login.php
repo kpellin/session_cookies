@@ -2,7 +2,15 @@
 
 
 
- require 'inc/head.php'; ?>
+ require 'inc/head.php';
+
+  if (!empty($_SESSION)) 
+  {
+    header('location: index.php');
+  }
+
+  ?>
+
 
 <div class="container" style="margin-top:40px">
 <div class="row">
@@ -54,11 +62,11 @@ if (!empty($_POST['loginname']))
   $username = htmlspecialchars($_POST['loginname']);
   $_SESSION['username'] = $username;
  
-  if (!empty($_SESSION)) 
-  {
-    header('location: index.php');
-  }
- 
+
+ if (isset($_SESSION['username'])) 
+ {
+   header('location: index.php');
+ }
 
 
 }
